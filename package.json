@@ -95,5 +95,8 @@
   "pre-push": [
     "test",
     "test:lint"
-  ]
+  ],
+  "dependencies": {
+    "redux-thunk": "^2.0.1"
+  }
 }

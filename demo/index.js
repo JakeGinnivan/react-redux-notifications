@@ -2,12 +2,17 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App.jsx';
 import { Provider } from 'react-redux'
-import { createStore } from 'redux'
+import { createStore, compose, applyMiddleware } from 'redux'
+import ReduxThunk from 'redux-thunk'
+import { middleware as NotificationMiddleware } from '../src/notifications.redux'
 import demoApp from './reducers'
 
 let store = createStore(
   demoApp,
-  window.devToolsExtension ? window.devToolsExtension() : _ => _
+  compose(
+    applyMiddleware(ReduxThunk, NotificationMiddleware),
+    window.devToolsExtension ? window.devToolsExtension() : _ => _
+  )
 )
 
 const app = document.getElementsByClassName('demonstration')[0]

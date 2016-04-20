@@ -1,5 +1,3 @@
-'use strict';
+import InlineNotification from './InlineNotification.jsx'
 
-// this should be the entry point to your library
-module.exports = {};
-
+export { InlineNotification }
