@@ -40,6 +40,9 @@ let store = createStore(
   hideAfter={500} />
 ```
 
+## Demo site
+[http://jake.ginnivan.net/react-redux-notifications/](http://jake.ginnivan.net/react-redux-notifications/)
+
 ### Common Tasks
 
 * Developing - **npm start** - Runs the development server at *localhost:8080* and use Hot Module Replacement. You can override the default host and port through env (`HOST`, `PORT`).
