@@ -1,6 +1,44 @@
 # react-redux-notifications
+Say you have a form with an API call and when the form submit succeeds you want to show the user a success message, or
+in the event of a failure, show them a failure message.
 
+React-redux-notifications is a redux middleware powered notification system which makes this super easy in a decoupled way.
 
+## Setup
+```js
+// Reducer setup
+import { reducer as notifications } from 'react-redux-notifications'
+
+const todoApp = combineReducers({
+  notifications,
+  ...restOfMiddleware
+})
+
+// Middleware setup
+import { middleware as NotificationMiddleware } from 'react-redux-notifications'
+
+let store = createStore(
+  myAppReducers,
+  compose(
+    applyMiddleware(ReduxThunk, NotificationMiddleware),
+    window.devToolsExtension ? window.devToolsExtension() : _ => _
+  )
+)
+```
+
+## Example usage
+
+```js
+<InlineNotification
+  message='Api call successful!'
+  triggeredBy={API_CALL_SUCCESS}
+  showDismiss />
+
+<InlineNotification
+  message='Api call successful!'
+  triggeredBy={DIFFERENT_API_CALL_SUCCESS}
+  hideAfter={500} />
+```
 
 ### Common Tasks
 
@@ -25,16 +63,6 @@ The boilerplate includes a [GitHub Pages](https://pages.github.com/) specific po
 * Building - **npm run gh-pages** - Builds the demo into `./gh-pages` directory.
 * Deploying - **npm run deploy-gh-pages** - Deploys the contents of `./gh-pages` to the `gh-pages` branch. GitHub will pick this up automatically. Your site will be available through *<user name>.github.io/<project name>`.
 * Generating stats - **npm run stats** - Generates stats that can be passed to [webpack analyse tool](https://webpack.github.io/analyse/). This is useful for investigating what the build consists of.
-
-## Highlighting Demo for the Site
-
-```js
-var a = 5;
-var b = 10;
-
-// just trying out code highlighting feature here
-console.log(a + b);
-```
 
 ## License
 

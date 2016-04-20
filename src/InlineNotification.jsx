@@ -39,9 +39,9 @@ class InlineNotification extends React.Component {
     return (
       <div>
         {notificationsForMe.map(n => (
-          <div key={n.key}>
+          <div className='notification' key={n.key}>
             {this.props.message}
-            {this.props.showDismiss && <div onClick={() => this.dismiss(n)}>dismiss</div>}
+            {this.props.showDismiss && <span className='notification_dismiss' onClick={() => this.dismiss(n)}>dismiss</span>}
           </div>
         ))}
       </div>

@@ -1,3 +1,4 @@
 import InlineNotification from './InlineNotification.jsx'
+import reducer, { middleware } from './notifications.redux'
 
-export { InlineNotification }
+export { reducer, middleware, InlineNotification }

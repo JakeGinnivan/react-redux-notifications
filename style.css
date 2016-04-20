@@ -1,1 +1,9 @@
 /* TODO: insert default styles of your component here for easy access */
+
+.notification {
+  background: green;
+}
+
+.notification_dismiss {
+  float: right;
+}
