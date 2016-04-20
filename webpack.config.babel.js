@@ -13,7 +13,7 @@ import renderJSX from './lib/render.jsx';
 import App from './demo/App.jsx';
 import pkg from './package.json';
 
-const RENDER_UNIVERSAL = true;
+const RENDER_UNIVERSAL = false;
 const TARGET = process.env.npm_lifecycle_event;
 const ROOT_PATH = __dirname;
 const config = {
