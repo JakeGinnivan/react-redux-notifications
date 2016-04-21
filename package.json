@@ -1,6 +1,7 @@
 {
   "name": "react-redux-notifications",
   "description": "Redux state driven notification components for React",
+  "user": "JakeGinnivan",
   "author": "Jake Ginnivan",
   "version": "0.1.0",
   "scripts": {
