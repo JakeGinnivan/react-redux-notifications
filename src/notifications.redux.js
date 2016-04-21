@@ -35,7 +35,8 @@ export const middleware = store => next => action => {
       type: SHOW_NOTIFICATION,
       key: notificationKey,
       trigger: action.type,
-      message: action.notificationMessage
+      showDismiss: listener.showDismiss,
+      message: action.notificationMessage || listener.defaultMessage
     })
 
     if (listener.hideAfter) {
@@ -59,7 +60,8 @@ export default function(state = { listeningTo: { }, notifications: { } }, action
         listeningTo: Object.assign({}, state.listeningTo, {
           [action.triggeredBy]: {
             hideAfter: action.hideAfter,
-            message: action.message
+            defaultMessage: action.defaultMessage,
+            showDismiss: action.showDismiss
           }
         })
       })
@@ -76,15 +78,18 @@ export default function(state = { listeningTo: { }, notifications: { } }, action
         notifications: Object.assign({}, state.notifications, {
           [action.trigger]: [...(state.notifications[action.trigger] || []), {
             key: action.key,
-            message: action.message
+            message: action.message,
+            trigger: action.trigger,
+            showDismiss: action.showDismiss
           }]
         })
       })
     case HIDE_NOTIFICATION: {
       let notificationForActionType = state.notifications[action.trigger]
+      const filtered = notificationForActionType.filter(n => n.key !== action.key)
       return Object.assign({}, state, {
         notifications: Object.assign({}, state.notifications, {
-          [action.trigger]: notificationForActionType.filter(n => n.key !== action.key)
+          [action.trigger]: filtered.length === 0 ? undefined : filtered
         })
       })
     }

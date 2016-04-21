@@ -1,4 +1,23 @@
-/* TODO: insert main styles of your demo here */
+/* Animation styles */
+.alert-enter {
+  opacity: 0.01;
+}
+
+.alert-enter.alert-enter-active {
+  opacity: 1;
+  transition: opacity 200ms ease-in;
+}
+
+.alert-leave {
+  opacity: 1;
+}
+
+.alert-leave.alert-leave-active {
+  opacity: 0.01;
+  transition: opacity 500ms ease-in;
+}
+
+/* Demo styles */
 
 body {
     background: #fefefe;

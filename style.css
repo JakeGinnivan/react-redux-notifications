@@ -1,9 +1,25 @@
 /* TODO: insert default styles of your component here for easy access */
 
 .notification {
-  background: green;
+  border-radius: 4px;
+  padding: 15px;
+  border: #000 1px solid;
+  background: lightgreen;
 }
 
 .notification_dismiss {
   float: right;
+  position: relative;
+  font-size: 21px;
+  font-weight: 700;
+  line-height: 1;
+  color: #000;
+  text-shadow: 0 1px 0 #fff;
+  opacity: .2;
+  cursor: pointer;
 }
+
+.notification_dismiss:hover {
+  opacity: .5;
+}
+
