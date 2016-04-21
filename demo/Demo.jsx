@@ -12,6 +12,10 @@ class Demo extends React.Component {
   render() {
     return (
       <div>
+        <div>
+          The trigger is a redux event, all you need to do is specify the event you want to notify for
+          and how you want the notification to behave
+        </div>
         <h4>Automatically hide</h4>
         <pre>
 {`<InlineNotification
@@ -29,8 +33,8 @@ class Demo extends React.Component {
         <pre>
 {`<InlineNotification
   message=\'Api call successful!\'
-  triggeredBy={API_CALL2_SUCCESS}
-  hideAfter={1000} />`}
+  showDismiss
+  triggeredBy={API_CALL2_SUCCESS} />`}
         </pre>
         <InlineNotification
           defaultMessage='Api call successful!'
