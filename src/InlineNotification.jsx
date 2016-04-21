@@ -13,7 +13,8 @@ class InlineNotification extends React.Component {
   }
 
   componentWillUnmount() {
-    this.props.dispatch(unlisten(this.props.triggeredBy))
+    const triggeredBy = Array.isArray(this.props.triggeredBy) ? this.props.triggeredBy : [this.props.triggeredBy]
+    this.props.dispatch(unlisten(triggeredBy))
   }
 
   componentDidReceiveProps(nextProps) {
@@ -35,7 +36,7 @@ class InlineNotification extends React.Component {
   }
 
   dismiss(notification) {
-    this.props.dispatch(hide(notification.trigger, notification.key))
+    this.props.dispatch(hide(notification.trigger.type, notification.key))
   }
 
   renderNotification(notification, dismiss) {

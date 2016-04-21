@@ -35,9 +35,33 @@ let store = createStore(
   showDismiss />
 
 <InlineNotification
-  message='Api call successful!'
+  defaultMessage='Api call successful!'
   triggeredBy={DIFFERENT_API_CALL_SUCCESS}
   hideAfter={500} />
+```
+
+## Limitations
+You can only have one InlineNotification component rendered for a particular event.
+
+Currently the last rendered components settings will win.
+
+## API
+### InlineNotification component
+ - `triggeredBy` - either string or array of strings defining which redux event(s) to listen for
+ - `defaultMessage` - The fallback message to render. `notificationMessage` on the triggering event type will take precident
+ - `hideAfter` - Hide notification after specified number of ms
+ - `renderNotification` - Override rendering each notification `function(notification) { return <div key={notification.key}>{notification.message}</div> }`
+ - `renderContainer` - Override the container render `function(notifications) { return <div id='notificationContainer'>{notifications}</div> }`
+    - `notifications` are the rendered components, you need to specify renderContainer and renderNotification separately
+
+#### notification
+The notification object which is passed to `renderNotification`
+``` js
+{
+  key: "<unique key used as react component key>"
+  message: "<notificationMessage || defaultMessage>"
+  trigger: "<redux event which triggered the notification>"
+}
 ```
 
 ## Demo site

@@ -9,10 +9,10 @@ export function listen(options) {
   })
 }
 
-export function unlisten(actionType) {
+export function unlisten(actionTypes) {
   return {
     type: STOP_LISTEN,
-    actionType
+    actionTypes
   }
 }
 
@@ -34,7 +34,7 @@ export const middleware = store => next => action => {
     store.dispatch({
       type: SHOW_NOTIFICATION,
       key: notificationKey,
-      trigger: action.type,
+      trigger: action,
       showDismiss: listener.showDismiss,
       message: action.notificationMessage || listener.defaultMessage
     })
@@ -66,17 +66,19 @@ export default function(state = { listeningTo: { }, notifications: { } }, action
         })
       })
     case STOP_LISTEN: {
-      const newCount = state.listeningTo[action.actionType] - 1
+      const newListeningTo = Object.assign({}, state.listeningTo)
+      action.actionTypes.forEach(actionType => {
+        const newCount = state.listeningTo[actionType] - 1
+        newListeningTo[actionType] = newCount === 0 ? undefined : newCount
+      })
       return Object.assign({}, state, {
-        listeningTo: Object.assign({}, state.listeningTo, {
-          [action.actionType]: newCount === 0 ? undefined : newCount
-        })
+        listeningTo: newListeningTo
       })
     }
     case SHOW_NOTIFICATION:
       return Object.assign({}, state, {
         notifications: Object.assign({}, state.notifications, {
-          [action.trigger]: [...(state.notifications[action.trigger] || []), {
+          [action.trigger.type]: [...(state.notifications[action.trigger.type] || []), {
             key: action.key,
             message: action.message,
             trigger: action.trigger,
