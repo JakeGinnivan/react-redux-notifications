@@ -1,7 +1,7 @@
 import React from 'react';
 import Fork from 'react-ghfork';
 import pkgInfo from '../package.json';
-import Demo from './Demo.jsx';
+import Demo from './Demo.js';
 
 export default class App extends React.Component {
   render() {

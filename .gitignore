@@ -3,3 +3,4 @@ gh-pages/
 dist-modules/
 node_modules/
 
+/dist/

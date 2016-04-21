@@ -9,8 +9,8 @@ import merge from 'webpack-merge';
 import React from 'react';
 import ReactDOM from 'react-dom/server';
 
-import renderJSX from './lib/render.jsx';
-import App from './demo/App.jsx';
+import renderJSX from './lib/render.js';
+import App from './demo/App.js';
 import pkg from './package.json';
 
 const RENDER_UNIVERSAL = false;
