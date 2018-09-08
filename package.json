@@ -3,7 +3,7 @@
   "description": "Redux state driven notification components for React",
   "user": "JakeGinnivan",
   "author": "Jake Ginnivan",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "types": "./lib/main.d.ts",
   "scripts": {
     "start": "webpack-dev-server",
