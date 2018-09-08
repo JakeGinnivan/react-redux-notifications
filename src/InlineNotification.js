@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { listen, unlisten, hide } from './notifications.redux'
 
@@ -65,16 +66,16 @@ class InlineNotification extends React.Component {
 }
 
 InlineNotification.propTypes = {
-  dispatch: React.PropTypes.func.isRequired,
-  triggeredBy: React.PropTypes.oneOfType([
-    React.PropTypes.string,
-    React.PropTypes.arrayOf(React.PropTypes.string)
+  dispatch: PropTypes.func.isRequired,
+  triggeredBy: PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.arrayOf(PropTypes.string)
   ]).isRequired,
-  notifications: React.PropTypes.object.isRequired,
-  defaultMessage: React.PropTypes.string,
-  hideAfter: React.PropTypes.number,
-  renderNotification: React.PropTypes.func,
-  renderContainer: React.PropTypes.func
+  notifications: PropTypes.object.isRequired,
+  defaultMessage: PropTypes.string,
+  hideAfter: PropTypes.number,
+  renderNotification: PropTypes.func,
+  renderContainer: PropTypes.func
 }
 
 export default connect(state => ({
