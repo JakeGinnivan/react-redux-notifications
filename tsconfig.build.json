@@ -1,0 +1,16 @@
+{
+    "include": ["src/index.ts"],
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "importHelpers": true /* Import emit helpers from 'tslib'. */,
+        "noEmit": false /* Do not emit outputs. */,
+        "declaration": true /* Generates corresponding '.d.ts' file. */,
+        "sourceMap": true /* Generates corresponding '.map' file. */,
+
+        /* Additional Checks */
+        "noUnusedLocals": true /* Report errors on unused locals. */,
+        "noUnusedParameters": true /* Report errors on unused parameters. */,
+        "noImplicitReturns": true /* Report error when not all code paths in function return a value. */,
+        "noFallthroughCasesInSwitch": true /* Report errors for fallthrough cases in switch statement. */
+    }
+}
