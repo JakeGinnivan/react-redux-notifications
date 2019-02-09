@@ -1,5 +1,7 @@
 # react-redux-notifications
 
+[![Build Status](https://travis-ci.com/JakeGinnivan/react-redux-notifications.svg?branch=master)](https://travis-ci.com/JakeGinnivan/react-redux-notifications)
+
 Say you have a form with an API call and when the form submit succeeds you want to show the user a success message, or
 in the event of a failure, show them a failure message.
 
